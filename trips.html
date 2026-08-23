@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>RoadGuard — Trips</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Dashboard's original CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Trips-only CSS -->
+  <link rel="stylesheet" href="trips.css" />
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- ================= SIDEBAR ================= -->
+
+  <aside class="sidebar">
+
+    <div class="brand-row">
+
+      <div class="brand-mark">
+        R
+      </div>
+
+      <div>
+        <p class="eyebrow">
+          Smart Vehicle
+        </p>
+
+        <h1>
+          RoadGuard
+        </h1>
+      </div>
+
+    </div>
+
+
+    <nav class="nav">
+
+      <button
+        class="nav-item"
+        onclick="window.location.href='index.html'"
+      >
+        <span>◉</span>
+        Dashboard
+      </button>
+
+      <button class="nav-item active">
+        <span>◎</span>
+        Trips
+      </button>
+
+      <button class="nav-item">
+        <span>△</span>
+        Alerts
+      </button>
+
+      <button class="nav-item">
+        <span>⚙</span>
+        Settings
+      </button>
+
+    </nav>
+
+
+    <div class="mini-card">
+
+      <p class="label">
+        Emergency
+      </p>
+
+      <h3>
+        Crash Alert
+      </h3>
+
+      <button class="primary-btn small">
+        Call SOS
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main class="main-panel trips-page">
+
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+      <div>
+
+        <p class="eyebrow">
+          Vehicle Safety Console
+        </p>
+
+        <h2>
+          Trips
+        </h2>
+
+      </div>
+
+
+      <div class="header-status">
+
+        <span class="live-dot"></span>
+
+        LIVE
+
+      </div>
+
+    </header>
+
+
+
+    <!-- ================= HEATMAP ================= -->
+
+    <section class="trips-map-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="section-kicker">
+            Risk Intelligence
+          </p>
+
+          <h2>
+            Danger Zone Heatmap
+          </h2>
+
+          <p class="map-description">
+            Live geographical telemetry mapping historical incident densities
+          </p>
+
+        </div>
+
+
+        <div class="heat-legend">
+
+          <span class="legend-item critical">
+            Critical
+          </span>
+
+          <span class="legend-item high">
+            High
+          </span>
+
+          <span class="legend-item moderate">
+            Moderate
+          </span>
+
+          <span class="legend-item low">
+            Low
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="danger-map">
+
+        <div class="map-grid"></div>
+
+        <div class="danger-road road-one"></div>
+        <div class="danger-road road-two"></div>
+        <div class="danger-road road-three"></div>
+
+
+        <div class="heat-zone zone-one">
+          42
+        </div>
+
+        <div class="heat-zone zone-two">
+          29
+        </div>
+
+        <div class="heat-zone zone-three">
+          24
+        </div>
+
+        <div class="heat-zone zone-four">
+          18
+        </div>
+
+        <div class="heat-zone zone-five">
+          9
+        </div>
+
+
+        <button class="map-control zoom-in">
+          +
+        </button>
+
+        <button class="map-control zoom-out">
+          −
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= CROSSINGS ================= -->
+
+    <section class="crossings-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="section-kicker">
+            Analytics
+          </p>
+
+          <h2>
+            Zone Crossings — Last 7 Days
+          </h2>
+
+          <p class="map-description">
+            Daily aggregated driver crossings through marked danger zones
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="trip-metrics">
+
+        <div class="trip-metric">
+
+          <span>
+            Total Crossings
+          </span>
+
+          <strong>
+            1,482
+          </strong>
+
+        </div>
+
+
+        <div class="trip-metric">
+
+          <span>
+            Avg. Daily Crossings
+          </span>
+
+          <strong>
+            211
+          </strong>
+
+        </div>
+
+
+        <div class="trip-metric">
+
+          <span>
+            Peak Day
+          </span>
+
+          <strong>
+            Wed
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="bar-chart">
+
+        <div class="bar-column">
+
+          <span class="bar-value">
+            185
+          </span>
+
+          <div
+            class="bar"
+            style="height:58%;"
+          ></div>
+
+          <span>
+            Mon
+          </span>
+
+        </div>
+
+
+        <div class="bar-column">
+
+          <span class="bar-value">
+            204
+          </span>
+
+          <div
+            class="bar"
+            style="height:64%;"
+          ></div>
+
+          <span>
+            Tue
+          </span>
+
+        </div>
+
+
+        <div class="bar-column active">
+
+          <span class="bar-value">
+            320
+          </span>
+
+          <div
+            class="bar"
+            style="height:100%;"
+          ></div>
+
+          <span>
+            Wed
+          </span>
+
+        </div>
+
+
+        <div class="bar-column">
+
+          <span class="bar-value">
+            226
+          </span>
+
+          <div
+            class="bar"
+            style="height:71%;"
+          ></div>
+
+          <span>
+            Thu
+          </span>
+
+        </div>
+
+
+        <div class="bar-column">
+
+          <span class="bar-value">
+            198
+          </span>
+
+          <div
+            class="bar"
+            style="height:62%;"
+          ></div>
+
+          <span>
+            Fri
+          </span>
+
+        </div>
+
+
+        <div class="bar-column">
+
+          <span class="bar-value">
+            176
+          </span>
+
+          <div
+            class="bar"
+            style="height:55%;"
+          ></div>
+
+          <span>
+            Sat
+          </span>
+
+        </div>
+
+
+        <div class="bar-column">
+
+          <span class="bar-value">
+            173
+          </span>
+
+          <div
+            class="bar"
+            style="height:54%;"
+          ></div>
+
+          <span>
+            Sun
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= TOP 5 ================= -->
+
+    <section class="risk-zones-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="section-kicker">
+            Risk Ranking
+          </p>
+
+          <h2>
+            Top 5 Highest-Risk Zones
+          </h2>
+
+          <p class="map-description">
+            Primary hazard points with highest monthly incident densities and traffic alerts
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="risk-table">
+
+
+        <div class="risk-table-header">
+
+          <span>
+            Rank
+          </span>
+
+          <span>
+            Zone Name
+          </span>
+
+          <span>
+            Severity Level
+          </span>
+
+          <span>
+            Incidents (30d)
+          </span>
+
+          <span>
+            Last Incident
+          </span>
+
+          <span>
+            Trend
+          </span>
+
+        </div>
+
+
+
+        <div class="risk-row">
+
+          <span>
+            #1
+          </span>
+
+          <strong>
+            Downtown Junction / 5th Ave
+          </strong>
+
+          <span class="severity critical">
+            CRITICAL
+          </span>
+
+          <span>
+            42 incidents
+          </span>
+
+          <span>
+            12 mins ago
+          </span>
+
+          <span class="trend-up">
+            +12%
+          </span>
+
+        </div>
+
+
+
+        <div class="risk-row">
+
+          <span>
+            #2
+          </span>
+
+          <strong>
+            Industrial Parkway Expressway
+          </strong>
+
+          <span class="severity high">
+            HIGH
+          </span>
+
+          <span>
+            29 incidents
+          </span>
+
+          <span>
+            1 hr ago
+          </span>
+
+          <span class="trend-up">
+            +12%
+          </span>
+
+        </div>
+
+
+
+        <div class="risk-row">
+
+          <span>
+            #3
+          </span>
+
+          <strong>
+            Highway 101 Northbound Exit 4
+          </strong>
+
+          <span class="severity high">
+            HIGH
+          </span>
+
+          <span>
+            24 incidents
+          </span>
+
+          <span>
+            3 hrs ago
+          </span>
+
+          <span class="trend-down">
+            -8%
+          </span>
+
+        </div>
+
+
+
+        <div class="risk-row">
+
+          <span>
+            #4
+          </span>
+
+          <strong>
+            East River Construction Tunnel
+          </strong>
+
+          <span class="severity moderate">
+            MODERATE
+          </span>
+
+          <span>
+            18 incidents
+          </span>
+
+          <span>
+            8 hrs ago
+          </span>
+
+          <span class="trend-up">
+            +12%
+          </span>
+
+        </div>
+
+
+
+        <div class="risk-row">
+
+          <span>
+            #5
+          </span>
+
+          <strong>
+            Westside Hub Intersect 12
+          </strong>
+
+          <span class="severity low">
+            LOW
+          </span>
+
+          <span>
+            9 incidents
+          </span>
+
+          <span>
+            1 day ago
+          </span>
+
+          <span class="trend-down">
+            -8%
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

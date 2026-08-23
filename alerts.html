@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>RoadGuard | Alerts</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="alerts.css" />
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div class="brand">
+
+      <div class="brand-logo">R</div>
+
+      <div>
+        <div class="brand-name">ROADGUARD</div>
+        <div class="brand-live">● LIVE</div>
+      </div>
+
+    </div>
+
+
+    <nav class="nav">
+
+      <button
+        class="nav-item"
+        onclick="window.location.href='index.html'"
+      >
+        <span class="nav-icon">⌂</span>
+        Dashboard
+      </button>
+
+      <button
+        class="nav-item"
+        onclick="window.location.href='trips.html'"
+      >
+        <span class="nav-icon">◫</span>
+        Trips
+      </button>
+
+      <button class="nav-item active">
+        <span class="nav-icon">△</span>
+        Alerts
+      </button>
+
+      <button class="nav-item">
+        <span class="nav-icon">⚙</span>
+        Settings
+      </button>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <div class="operator-card">
+
+        <div class="operator-title">
+          Operator #294
+        </div>
+
+        <button class="view-option active">
+          Fleet View
+        </button>
+
+        <button class="view-option">
+          Family View
+        </button>
+
+      </div>
+
+      <div class="fleet-manager">
+        Fleet Manager
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+
+  <main class="main-panel alerts-page">
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+      <div>
+
+        <div class="page-label">
+          ROADGUARD
+        </div>
+
+        <h1>
+          Alerts
+        </h1>
+
+      </div>
+
+      <div class="header-status">
+        <span class="live-dot"></span>
+        LIVE
+      </div>
+
+    </header>
+
+
+    <!-- ALERT SUMMARY -->
+
+    <section class="alert-summary">
+
+      <div class="alert-summary-card active-alerts">
+
+        <span class="alert-kicker">
+          ACTIVE ALERTS
+        </span>
+
+        <strong>
+          3
+        </strong>
+
+        <p>
+          Require attention
+        </p>
+
+      </div>
+
+
+      <div class="alert-summary-card">
+
+        <span class="alert-kicker">
+          WARNINGS TODAY
+        </span>
+
+        <strong>
+          12
+        </strong>
+
+        <p>
+          +3 compared to yesterday
+        </p>
+
+      </div>
+
+
+      <div class="alert-summary-card">
+
+        <span class="alert-kicker">
+          CRITICAL EVENTS
+        </span>
+
+        <strong>
+          1
+        </strong>
+
+        <p>
+          Last event 12 mins ago
+        </p>
+
+      </div>
+
+
+      <div class="alert-summary-card">
+
+        <span class="alert-kicker">
+          RESOLVED
+        </span>
+
+        <strong>
+          28
+        </strong>
+
+        <p>
+          This week
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ALERT LIST -->
+
+    <section class="alerts-panel">
+
+      <div class="alerts-header">
+
+        <div>
+
+          <span class="section-kicker">
+            SAFETY EVENTS
+          </span>
+
+          <h2>
+            Recent Alerts
+          </h2>
+
+        </div>
+
+        <button class="filter-button">
+          All Alerts ▾
+        </button>
+
+      </div>
+
+
+      <div class="alert-list">
+
+
+        <!-- CRITICAL -->
+
+        <article class="alert-item critical-alert">
+
+          <div class="alert-icon">
+            !
+          </div>
+
+          <div class="alert-content">
+
+            <div class="alert-title-row">
+
+              <h3>
+                High-Risk Zone Detected
+              </h3>
+
+              <span class="alert-badge critical">
+                CRITICAL
+              </span>
+
+            </div>
+
+            <p>
+              Vehicle approaching Downtown Junction / 5th Ave.
+              14 incidents recorded in this zone.
+            </p>
+
+            <span class="alert-time">
+              12 mins ago · Toyota Hilux
+            </span>
+
+          </div>
+
+          <button class="alert-action">
+            View
+          </button>
+
+        </article>
+
+
+        <!-- WARNING -->
+
+        <article class="alert-item warning-alert">
+
+          <div class="alert-icon">
+            !
+          </div>
+
+          <div class="alert-content">
+
+            <div class="alert-title-row">
+
+              <h3>
+                Danger Zone Warning
+              </h3>
+
+              <span class="alert-badge warning">
+                HIGH
+              </span>
+
+            </div>
+
+            <p>
+              Vehicle entered a marked high-risk corridor.
+              Driver warning successfully delivered.
+            </p>
+
+            <span class="alert-time">
+              38 mins ago · Toyota Hilux
+            </span>
+
+          </div>
+
+          <button class="alert-action">
+            View
+          </button>
+
+        </article>
+
+
+        <!-- SENSOR -->
+
+        <article class="alert-item sensor-alert">
+
+          <div class="alert-icon">
+            ⓘ
+          </div>
+
+          <div class="alert-content">
+
+            <div class="alert-title-row">
+
+              <h3>
+                IMU Sensor Activity
+              </h3>
+
+              <span class="alert-badge info">
+                INFO
+              </span>
+
+            </div>
+
+            <p>
+              Sudden acceleration detected but remained
+              below crash-detection threshold.
+            </p>
+
+            <span class="alert-time">
+              1 hr ago · Toyota Hilux
+            </span>
+
+          </div>
+
+          <button class="alert-action">
+            View
+          </button>
+
+        </article>
+
+
+        <!-- RESOLVED -->
+
+        <article class="alert-item resolved-alert">
+
+          <div class="alert-icon">
+            ✓
+          </div>
+
+          <div class="alert-content">
+
+            <div class="alert-title-row">
+
+              <h3>
+                Risk Zone Cleared
+              </h3>
+
+              <span class="alert-badge resolved">
+                RESOLVED
+              </span>
+
+            </div>
+
+            <p>
+              Vehicle successfully exited the danger zone.
+              No incident detected.
+            </p>
+
+            <span class="alert-time">
+              2 hrs ago · Toyota Hilux
+            </span>
+
+          </div>
+
+          <button class="alert-action">
+            View
+          </button>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- EMERGENCY -->
+
+    <section class="emergency-panel">
+
+      <div>
+
+        <span class="section-kicker">
+          EMERGENCY RESPONSE
+        </span>
+
+        <h2>
+          Crash Detection & SOS
+        </h2>
+
+        <p>
+          Automatic emergency response is active.
+          If a crash is detected, RoadGuard will notify
+          emergency contacts with the vehicle location.
+        </p>
+
+      </div>
+
+      <div class="emergency-status">
+
+        <span class="emergency-dot"></span>
+
+        SYSTEM ARMED
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

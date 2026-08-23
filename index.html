@@ -1,211 +1,682 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RoadGuard Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="brand-row">
-          <div class="brand-mark">R</div>
-          <div>
-            <p class="eyebrow">Smart Vehicle</p>
-            <h1>RoadGuard</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>RoadGuard | Live Monitoring</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <div class="app-shell">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+      <div class="brand">
+
+        <div class="brand-logo">
+          R
+        </div>
+
+        <div>
+          <div class="brand-name">
+            ROADGUARD
+          </div>
+
+          <div class="brand-live">
+            ● LIVE
           </div>
         </div>
 
-        <nav class="nav">
-          <button class="nav-item active">
-            <span>◉</span>
-            Dashboard
-          </button>
-          <button class="nav-item">
-            <span>◎</span>
-            Vehicles
-          </button>
-          <button class="nav-item">
-            <span>△</span>
-            Alerts
-          </button>
-          <button class="nav-item">
-            <span>▣</span>
-            Risk Zones
-          </button>
-          <button class="nav-item">
-            <span>✦</span>
-            Reports
-          </button>
-          <button class="nav-item">
-            <span>⚙</span>
-            Settings
-          </button>
-        </nav>
+      </div>
 
-        <div class="mini-card danger-box">
-          <p class="label">Emergency</p>
-          <h3>Crash Alert</h3>
-          <button class="primary-btn small">Call SOS</button>
+
+      <!-- NAVIGATION -->
+
+      <nav class="nav">
+
+        <!-- Dashboard -->
+
+        <button
+          class="nav-item active"
+          onclick="window.location.href='index.html'"
+        >
+          <span class="nav-icon">
+            ⌂
+          </span>
+
+          Dashboard
+        </button>
+
+
+        <!-- Trips -->
+
+        <button
+          class="nav-item"
+          onclick="window.location.href='trips.html'"
+        >
+          <span class="nav-icon">
+            ◫
+          </span>
+
+          Trips
+        </button>
+
+
+        <!-- Alerts -->
+
+        <button
+          class="nav-item"
+          onclick="window.location.href='alerts.html'"
+        >
+          <span class="nav-icon">
+            △
+          </span>
+
+          Alerts
+        </button>
+
+
+        <!-- Settings -->
+
+        <button
+          class="nav-item"
+          onclick="window.location.href='settings.html'"
+        >
+          <span class="nav-icon">
+            ⚙
+          </span>
+
+          Settings
+        </button>
+
+      </nav>
+
+
+      <!-- SIDEBAR BOTTOM -->
+
+      <div class="sidebar-bottom">
+
+        <div class="operator-card">
+
+          <div class="operator-title">
+            Operator #294
+          </div>
+
+          <button class="view-option active">
+            Fleet View
+          </button>
+
+          <button class="view-option">
+            Family View
+          </button>
+
         </div>
-      </aside>
 
-      <main class="main-panel">
-        <header class="topbar">
+
+        <div class="fleet-manager">
+          Fleet Manager
+        </div>
+
+      </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-panel">
+
+
+      <!-- TOP HEADER -->
+
+      <header class="topbar">
+
+        <div>
+
+          <div class="page-label">
+            ROADGUARD
+          </div>
+
+          <h1>
+            Live Monitoring
+          </h1>
+
+        </div>
+
+
+        <div class="header-status">
+
+          <span class="live-dot"></span>
+
+          LIVE
+
+        </div>
+
+      </header>
+
+
+      <!-- ================= MAIN STATUS ================= -->
+
+      <section class="status-section">
+
+
+        <!-- ALL CLEAR -->
+
+        <div class="status-card all-clear">
+
+          <div class="status-label">
+            ALL CLEAR
+          </div>
+
+          <div class="status-main">
+
+            <span class="status-dot green"></span>
+
+            LIVE
+
+          </div>
+
+          <p>
+            No Threats Detected
+          </p>
+
+        </div>
+
+
+        <!-- SYSTEM SAFE -->
+
+        <div class="status-card safe-state">
+
+          <div class="status-label">
+            SAFE
+          </div>
+
+          <div class="status-description">
+            SYSTEM SAFE
+          </div>
+
+          <p>
+            No speed violations or risk events detected
+          </p>
+
+        </div>
+
+
+        <!-- STATE BUTTONS -->
+
+        <div class="status-actions">
+
+          <button class="state-button safe-button">
+            SAFE
+          </button>
+
+          <button class="state-button warning-button">
+            HIGH-RISK WARNING
+          </button>
+
+          <button class="state-button accident-button">
+            ACCIDENT DETECTED
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= TELEMETRY ================= -->
+
+      <section class="telemetry-section">
+
+        <div class="section-heading">
+
           <div>
-            <p class="eyebrow">Vehicle Safety Console</p>
-            <h2>Live Monitoring</h2>
+
+            <span class="section-kicker">
+              TELEMETRY CENTER
+            </span>
+
+            <h2>
+              Vehicle Telemetry
+            </h2>
+
           </div>
 
-          <div class="top-actions">
-            <button class="ghost-btn">Share</button>
-            <button class="primary-btn">+ Add Vehicle</button>
-          </div>
-        </header>
 
-        <section class="hero-grid">
-          <div class="hero-card map-card">
-            <div class="card-header">
-              <div>
-                <p class="eyebrow muted">Current route</p>
-                <h3>Delhi → Gurugram</h3>
-              </div>
-              <span class="status-pill safe">Safe</span>
+          <span class="online-badge">
+            ONLINE
+          </span>
+
+        </div>
+
+
+        <div class="telemetry-grid">
+
+
+          <!-- SPEED -->
+
+          <div class="telemetry-card speed-card">
+
+            <div class="telemetry-label">
+              Speed
             </div>
 
-            <div class="map-surface">
-              <div class="road road-horizontal"></div>
-              <div class="road road-vertical"></div>
+            <div class="speed-value">
+
+              62
+
+              <span>
+                km/h
+              </span>
+
+            </div>
+
+
+            <div class="speed-target">
+
+              <strong>
+                Speed Target
+              </strong>
+
+              <span>
+                Optimal Pace
+              </span>
+
+            </div>
+
+
+            <div class="safe-margin">
+              Safe Margin
+            </div>
+
+          </div>
+
+
+          <!-- SENSORS -->
+
+          <div class="telemetry-card">
+
+            <div class="telemetry-label">
+              Sensors & Uplink
+            </div>
+
+
+            <div class="sensor-list">
+
+              <div class="sensor-row">
+
+                <span class="sensor-status"></span>
+
+                <span>
+                  GPS Connected
+                </span>
+
+              </div>
+
+
+              <div class="sensor-row">
+
+                <span class="sensor-status"></span>
+
+                <span>
+                  4G LTE
+                </span>
+
+              </div>
+
+
+              <div class="sensor-row">
+
+                <span class="sensor-status"></span>
+
+                <span>
+                  IMU Active
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- ACTIVE ROUTE -->
+
+          <div class="telemetry-card route-card">
+
+            <div class="telemetry-label">
+              Active Route
+            </div>
+
+
+            <div class="route-map">
+
               <div class="route-line"></div>
-              <div class="marker marker-start"></div>
-              <div class="marker marker-end"></div>
-              <div class="vehicle-dot">
-                <div class="vehicle-body"></div>
+
+
+              <div class="route-point current">
+
+                <span></span>
+
               </div>
+
+
+              <div class="route-point danger">
+
+                <span></span>
+
+              </div>
+
             </div>
+
+
+            <div class="route-labels">
+
+              <span>
+                Current Position
+              </span>
+
+              <span>
+                Danger Zone
+              </span>
+
+            </div>
+
           </div>
 
-          <div class="hero-card status-stack">
-            <div class="metric-card good">
-              <div>
-                <p>Vehicle Health</p>
-                <strong>96%</strong>
-              </div>
-              <span class="trend up">+4.2%</span>
-            </div>
-            <div class="metric-card warning">
-              <div>
-                <p>Risk Zone</p>
-                <strong>2 Nearby</strong>
-              </div>
-              <span class="trend warn">Watch</span>
-            </div>
-            <div class="metric-card alert">
-              <div>
-                <p>Crash Detected</p>
-                <strong>0 Events</strong>
-              </div>
-              <span class="trend safe">Stable</span>
-            </div>
-          </div>
-        </section>
+        </div>
 
-        <section class="stats-grid">
-          <article class="stat-card">
-            <div class="stat-top">
-              <span class="icon green">●</span>
-              <span class="tag health">GPS</span>
-            </div>
-            <h4>18.56 km/h</h4>
-            <p>Signal strength stable</p>
-          </article>
+      </section>
 
-          <article class="stat-card">
-            <div class="stat-top">
-              <span class="icon amber">●</span>
-              <span class="tag warning-tag">Impact</span>
-            </div>
-            <h4>4.2 g</h4>
-            <p>Below crash threshold</p>
-          </article>
 
-          <article class="stat-card">
-            <div class="stat-top">
-              <span class="icon red">●</span>
-              <span class="tag danger-tag">SMS</span>
-            </div>
-            <h4>1.3s</h4>
-            <p>Emergency alert latency</p>
-          </article>
+      <!-- ================= VEHICLE + RISK ================= -->
 
-          <article class="stat-card">
-            <div class="stat-top">
-              <span class="icon blue">●</span>
-              <span class="tag info-tag">AI</span>
-            </div>
-            <h4>92%</h4>
-            <p>Safe route confidence</p>
-          </article>
-        </section>
+      <section class="information-grid">
 
-        <section class="bottom-grid">
-          <div class="panel">
-            <div class="panel-header">
-              <h3>Safety Timeline</h3>
-              <button class="ghost-btn small">View all</button>
+
+        <!-- SELECTED UNIT -->
+
+        <div class="panel vehicle-panel">
+
+          <div class="panel-heading">
+
+            <div>
+
+              <span class="section-kicker">
+                SELECTED UNIT
+              </span>
+
+              <h2>
+                Toyota Hilux
+              </h2>
+
             </div>
 
-            <ul class="timeline">
-              <li>
-                <span class="dot green"></span>
-                <div>
-                  <strong>Approach warning cleared</strong>
-                  <p>12:14 PM • Safe road segment</p>
-                </div>
-              </li>
-              <li>
-                <span class="dot yellow"></span>
-                <div>
-                  <strong>Risk zone detected</strong>
-                  <p>12:08 PM • High impact corridor</p>
-                </div>
-              </li>
-              <li>
-                <span class="dot red"></span>
-                <div>
-                  <strong>Emergency contact notified</strong>
-                  <p>11:52 AM • SOS protocol triggered</p>
-                </div>
-              </li>
-            </ul>
+
+            <span class="vehicle-status">
+              ONLINE
+            </span>
+
           </div>
 
-          <div class="panel focus-panel">
-            <div class="panel-header">
-              <h3>AI Safety Summary</h3>
-              <span class="status-pill safe">Latest</span>
+
+          <div class="vehicle-details">
+
+
+            <div>
+
+              <span>
+                License Plate
+              </span>
+
+              <strong>
+                KA-05-MR-2024
+              </strong>
+
             </div>
 
-            <div class="summary-box">
-              <p>
-                The trip remained stable with no major collision activity. The vehicle
-                passed one high-risk junction but remained below unsafe thresholds.
-              </p>
+
+            <div>
+
+              <span>
+                Last Update
+              </span>
+
+              <strong>
+                Just now (12s ago)
+              </strong>
+
             </div>
 
-            <div class="actions-row">
-              <button class="primary-btn">Generate report</button>
-              <button class="ghost-btn">Download</button>
-            </div>
+
           </div>
-        </section>
-      </main>
-    </div>
 
-    <script src="script.js"></script>
-  </body>
+        </div>
+
+
+        <!-- HIGH RISK ZONE -->
+
+        <div class="panel risk-panel">
+
+          <div class="risk-header">
+
+            <div>
+
+              <span class="section-kicker">
+                HIGH-RISK ZONE AHEAD
+              </span>
+
+              <h2>
+                High Risk
+              </h2>
+
+            </div>
+
+
+            <span class="risk-level">
+              HIGH
+            </span>
+
+          </div>
+
+
+          <div class="risk-distance">
+            1.2 km ahead
+          </div>
+
+
+          <p class="risk-description">
+            14 incidents recorded
+          </p>
+
+
+          <button class="analysis-button">
+            View Analysis →
+          </button>
+
+
+          <div class="alert-sent">
+            ✓ Alert Sent to Driver
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= STATISTICS ================= -->
+
+      <section class="stats-section">
+
+
+        <!-- TOTAL TRIPS -->
+
+        <div class="stat-card">
+
+          <span>
+            Total Trips
+          </span>
+
+          <strong>
+            247
+          </strong>
+
+          <small>
+            +12 this week
+          </small>
+
+        </div>
+
+
+        <!-- WARNINGS -->
+
+        <div class="stat-card">
+
+          <span>
+            Warnings Issued
+          </span>
+
+          <strong>
+            89
+          </strong>
+
+          <small>
+            Last: 2 hrs ago
+          </small>
+
+        </div>
+
+
+        <!-- DANGER ZONES -->
+
+        <div class="stat-card">
+
+          <span>
+            Danger Zones Crossed
+          </span>
+
+          <strong>
+            156
+          </strong>
+
+          <small>
+            3 today
+          </small>
+
+        </div>
+
+
+        <!-- ACCIDENTS AVOIDED -->
+
+        <div class="stat-card">
+
+          <span>
+            Accidents Avoided
+          </span>
+
+          <strong>
+            12
+          </strong>
+
+          <small>
+            100% safe record
+          </small>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= AI REPORT ================= -->
+
+      <section class="ai-panel">
+
+
+        <div class="ai-header">
+
+          <div>
+
+            <span class="section-kicker">
+              ROADGUARD AI ADVISORY
+            </span>
+
+            <h2>
+              Journey Safety Report
+            </h2>
+
+          </div>
+
+
+          <span class="ai-time">
+            Generated 5 mins ago
+          </span>
+
+        </div>
+
+
+        <div class="ai-content">
+
+          <p>
+
+            Today's Journey: 47 km covered, 3 danger zones crossed safely,
+            0 incidents. Current safety score:
+
+            <strong>
+              94/100
+            </strong>.
+
+            Next danger zone in
+
+            <strong>
+              1.2 km
+            </strong>
+
+            - driver has been alerted.
+
+          </p>
+
+        </div>
+
+
+        <div class="ai-footer">
+
+          <span class="ai-confidence">
+            AI Confidence: High
+          </span>
+
+
+          <div>
+
+            <button class="secondary-button">
+              Regenerate Report
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
 </html>
