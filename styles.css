@@ -4,6 +4,7 @@
   --panel: #0d202d;
   --panel2: #102635;
   --line: rgba(150, 180, 200, 0.16);
+  --border: rgba(150, 180, 200, 0.16);
 
   --text: #edf7ff;
   --muted: #91a6b7;
@@ -232,6 +233,12 @@ button:focus {
   border: 1px solid var(--line);
 }
 
+.emergency-card {
+  background: linear-gradient(180deg, rgba(255, 93, 108, 0.10), rgba(255, 93, 108, 0.04));
+  border: 1px solid rgba(255, 93, 108, 0.30);
+  box-shadow: 0 14px 35px rgba(255, 93, 108, 0.12);
+}
+
 .operator-title {
   margin-bottom: 12px;
 
@@ -239,6 +246,48 @@ button:focus {
 
   font-size: 12px;
   font-weight: 700;
+}
+
+.emergency-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+
+.contact-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 12px rgba(53, 216, 154, 0.7);
+}
+
+.emergency-contact-row strong {
+  display: block;
+  font-size: 13px;
+  color: white;
+}
+
+.emergency-contact-row small {
+  display: block;
+  color: #c9dbe9;
+  margin-top: 3px;
+  opacity: 0.9;
+}
+
+.sos-button {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, var(--red), #ff7b88);
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(255, 93, 108, 0.22);
 }
 
 .view-option {

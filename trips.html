@@ -38,226 +38,143 @@
 
 <div class="app-shell">
 
-  <!-- ================= SIDEBAR ================= -->
-
   <aside class="sidebar">
 
-    <div class="brand-row">
+    <div class="brand">
 
-      <div class="brand-mark">
+      <div class="brand-logo">
         R
       </div>
 
       <div>
-        <p class="eyebrow">
-          Smart Vehicle
-        </p>
+        <div class="brand-name">
+          ROADGUARD
+        </div>
 
-        <h1>
-          RoadGuard
-        </h1>
+        <div class="brand-live">
+          ● LIVE
+        </div>
       </div>
 
     </div>
 
-
     <nav class="nav">
 
-      <button
-        class="nav-item"
-        onclick="window.location.href='index.html'"
-      >
-        <span>◉</span>
+      <button class="nav-item" onclick="window.location.href='index.html'">
+        <span class="nav-icon">⌂</span>
         Dashboard
       </button>
 
-      <button class="nav-item active">
-        <span>◎</span>
+      <button class="nav-item active" onclick="window.location.href='trips.html'">
+        <span class="nav-icon">◫</span>
         Trips
       </button>
 
-      <button class="nav-item">
-        <span>△</span>
+      <button class="nav-item" onclick="window.location.href='alerts.html'">
+        <span class="nav-icon">△</span>
         Alerts
       </button>
 
-      <button class="nav-item">
-        <span>⚙</span>
+      <button class="nav-item" onclick="window.location.href='settings.html'">
+        <span class="nav-icon">⚙</span>
         Settings
       </button>
 
     </nav>
 
+    <div class="sidebar-bottom">
 
-    <div class="mini-card">
+      <div class="operator-card emergency-card">
+        <div class="operator-title">Emergency Contact</div>
 
-      <p class="label">
-        Emergency
-      </p>
+        <div class="emergency-contact-row">
+          <span class="contact-dot"></span>
+          <div>
+            <strong>Mom</strong>
+            <small>+91 98765 43210</small>
+          </div>
+        </div>
 
-      <h3>
-        Crash Alert
-      </h3>
+        <button class="sos-button">SOS Trigger</button>
+      </div>
 
-      <button class="primary-btn small">
-        Call SOS
-      </button>
+      <div class="operator-card">
+        <div class="operator-title">Operator #294</div>
+        <button class="view-option active">Fleet View</button>
+        <button class="view-option">Family View</button>
+      </div>
+
+      <div class="fleet-manager">Fleet Manager</div>
 
     </div>
 
   </aside>
 
-
-  <!-- ================= MAIN ================= -->
-
   <main class="main-panel trips-page">
-
-
-    <!-- HEADER -->
 
     <header class="topbar">
 
       <div>
-
-        <p class="eyebrow">
-          Vehicle Safety Console
-        </p>
-
-        <h2>
-          Trips
-        </h2>
-
+        <div class="page-label">ROADGUARD</div>
+        <h1>Trips</h1>
       </div>
 
-
       <div class="header-status">
-
         <span class="live-dot"></span>
-
         LIVE
-
       </div>
 
     </header>
-
-
-
-    <!-- ================= HEATMAP ================= -->
 
     <section class="trips-map-section">
 
       <div class="section-heading">
 
         <div>
-
-          <p class="section-kicker">
-            Risk Intelligence
-          </p>
-
-          <h2>
-            Danger Zone Heatmap
-          </h2>
-
-          <p class="map-description">
-            Live geographical telemetry mapping historical incident densities
-          </p>
-
+          <p class="section-kicker">Risk Intelligence</p>
+          <h2>Danger Zone Heatmap</h2>
+          <p class="map-description">Live geographical telemetry mapping historical incident densities</p>
         </div>
 
-
         <div class="heat-legend">
-
-          <span class="legend-item critical">
-            Critical
-          </span>
-
-          <span class="legend-item high">
-            High
-          </span>
-
-          <span class="legend-item moderate">
-            Moderate
-          </span>
-
-          <span class="legend-item low">
-            Low
-          </span>
-
+          <span class="legend-item critical">Critical</span>
+          <span class="legend-item high">High</span>
+          <span class="legend-item moderate">Moderate</span>
+          <span class="legend-item low">Low</span>
         </div>
 
       </div>
 
-
       <div class="danger-map">
-
         <div class="map-grid"></div>
-
         <div class="danger-road road-one"></div>
         <div class="danger-road road-two"></div>
         <div class="danger-road road-three"></div>
 
+        <div class="heat-zone zone-one">42</div>
+        <div class="heat-zone zone-two">29</div>
+        <div class="heat-zone zone-three">24</div>
+        <div class="heat-zone zone-four">18</div>
+        <div class="heat-zone zone-five">9</div>
 
-        <div class="heat-zone zone-one">
-          42
-        </div>
-
-        <div class="heat-zone zone-two">
-          29
-        </div>
-
-        <div class="heat-zone zone-three">
-          24
-        </div>
-
-        <div class="heat-zone zone-four">
-          18
-        </div>
-
-        <div class="heat-zone zone-five">
-          9
-        </div>
-
-
-        <button class="map-control zoom-in">
-          +
-        </button>
-
-        <button class="map-control zoom-out">
-          −
-        </button>
-
+        <button class="map-control zoom-in">+</button>
+        <button class="map-control zoom-out">−</button>
       </div>
 
     </section>
 
-
-
-    <!-- ================= CROSSINGS ================= -->
-
     <section class="crossings-section">
 
       <div class="section-heading">
-
         <div>
-
-          <p class="section-kicker">
-            Analytics
-          </p>
-
-          <h2>
-            Zone Crossings — Last 7 Days
-          </h2>
-
-          <p class="map-description">
-            Daily aggregated driver crossings through marked danger zones
-          </p>
-
+          <p class="section-kicker">Analytics</p>
+          <h2>Zone Crossings — Last 7 Days</h2>
+          <p class="map-description">Daily aggregated driver crossings through marked danger zones</p>
         </div>
-
       </div>
 
-
       <div class="trip-metrics">
+
 
         <div class="trip-metric">
 
