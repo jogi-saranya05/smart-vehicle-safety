@@ -1,16 +1,16 @@
 .alerts-page {
-  gap: 20px;
+  gap: 14px;
 }
 
 .alert-summary {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 13px;
+  gap: 10px;
 }
 
 .alert-summary-card {
-  padding: 19px;
-  min-height: 125px;
+  padding: 16px 18px;
+  min-height: 100px;
 
   border-radius: 17px;
 
@@ -55,7 +55,7 @@
 /* ALERT PANEL */
 
 .alerts-panel {
-  padding: 21px;
+  padding: 16px 18px;
 
   border-radius: 20px;
 
@@ -97,12 +97,12 @@
 /* ALERT LIST */
 
 .alert-list {
-  margin-top: 18px;
+  margin-top: 14px;
 
   display: flex;
   flex-direction: column;
 
-  gap: 9px;
+  gap: 8px;
 }
 
 .alert-item {
@@ -112,9 +112,9 @@
 
   align-items: center;
 
-  gap: 15px;
+  gap: 12px;
 
-  padding: 15px;
+  padding: 12px 14px;
 
   border-radius: 13px;
 

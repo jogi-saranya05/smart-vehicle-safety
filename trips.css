@@ -3,7 +3,7 @@
 ===================================================== */
 
 .trips-page {
-  gap: 25px;
+  gap: 14px;
 }
 
 .section-heading {
@@ -39,7 +39,7 @@
   background: rgba(12, 31, 43, 0.88);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 20px;
+  padding: 16px 18px;
   box-shadow: var(--shadow);
 }
 
@@ -77,8 +77,8 @@
 }
 
 .danger-map {
-  height: 320px;
-  margin-top: 18px;
+  height: 220px;
+  margin-top: 14px;
   position: relative;
   overflow: hidden;
   border-radius: 13px;
@@ -153,12 +153,12 @@
 .trip-metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 16px;
+  gap: 10px;
+  margin-top: 12px;
 }
 
 .trip-metric {
-  padding: 14px;
+  padding: 12px 14px;
   background: rgba(255,255,255,0.025);
   border: 1px solid var(--border);
   border-radius: 11px;
@@ -176,13 +176,13 @@
 }
 
 .bar-chart {
-  height: 210px;
-  margin-top: 20px;
+  height: 150px;
+  margin-top: 12px;
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
-  gap: 14px;
-  padding: 15px 20px 0;
+  gap: 10px;
+  padding: 10px 12px 0;
   border-top: 1px solid var(--border);
 }
 

@@ -28,13 +28,15 @@
   box-sizing: border-box;
 }
 
-html {
-  min-height: 100%;
+html, body {
+  height: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
   background:
     radial-gradient(
       circle at 70% 0%,
@@ -66,14 +68,15 @@ button:focus {
 
 .app-shell {
   width: min(1500px, calc(100vw - 48px));
-  min-height: 100vh;
+  min-height: calc(100vh - 32px);
 
   margin: 0 auto;
-  padding: 24px 0;
+  padding: 16px 0;
 
   display: grid;
-  grid-template-columns: 245px 1fr;
-  gap: 24px;
+  grid-template-columns: 245px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
 }
 
 /* =========================
@@ -81,14 +84,16 @@ button:focus {
 ========================= */
 
 .sidebar {
-  min-height: calc(100vh - 48px);
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
 
   background: rgba(8, 22, 31, 0.92);
 
   border: 1px solid var(--line);
   border-radius: 24px;
 
-  padding: 25px 17px;
+  padding: 20px 17px;
 
   display: flex;
   flex-direction: column;
@@ -334,11 +339,12 @@ button:focus {
 
 .main-panel {
   min-width: 0;
+  height: auto;
 
   display: flex;
   flex-direction: column;
 
-  gap: 18px;
+  gap: 12px;
 }
 
 /* =========================
@@ -346,13 +352,13 @@ button:focus {
 ========================= */
 
 .topbar {
-  min-height: 62px;
+  min-height: 52px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 4px 5px;
+  padding: 0 5px;
 }
 
 .page-label {
@@ -412,13 +418,13 @@ button:focus {
 
   grid-template-columns: 1.1fr 1fr 1.25fr;
 
-  gap: 14px;
+  gap: 10px;
 }
 
 .status-card {
-  min-height: 125px;
+  min-height: 105px;
 
-  padding: 20px;
+  padding: 16px 18px;
 
   border-radius: 18px;
 
