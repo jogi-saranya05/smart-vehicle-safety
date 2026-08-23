@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoadGuard Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-row">
+          <div class="brand-mark">R</div>
+          <div>
+            <p class="eyebrow">Smart Vehicle</p>
+            <h1>RoadGuard</h1>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item active">
+            <span>◉</span>
+            Dashboard
+          </button>
+          <button class="nav-item">
+            <span>◎</span>
+            Vehicles
+          </button>
+          <button class="nav-item">
+            <span>△</span>
+            Alerts
+          </button>
+          <button class="nav-item">
+            <span>▣</span>
+            Risk Zones
+          </button>
+          <button class="nav-item">
+            <span>✦</span>
+            Reports
+          </button>
+          <button class="nav-item">
+            <span>⚙</span>
+            Settings
+          </button>
+        </nav>
+
+        <div class="mini-card danger-box">
+          <p class="label">Emergency</p>
+          <h3>Crash Alert</h3>
+          <button class="primary-btn small">Call SOS</button>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Vehicle Safety Console</p>
+            <h2>Live Monitoring</h2>
+          </div>
+
+          <div class="top-actions">
+            <button class="ghost-btn">Share</button>
+            <button class="primary-btn">+ Add Vehicle</button>
+          </div>
+        </header>
+
+        <section class="hero-grid">
+          <div class="hero-card map-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow muted">Current route</p>
+                <h3>Delhi → Gurugram</h3>
+              </div>
+              <span class="status-pill safe">Safe</span>
+            </div>
+
+            <div class="map-surface">
+              <div class="road road-horizontal"></div>
+              <div class="road road-vertical"></div>
+              <div class="route-line"></div>
+              <div class="marker marker-start"></div>
+              <div class="marker marker-end"></div>
+              <div class="vehicle-dot">
+                <div class="vehicle-body"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card status-stack">
+            <div class="metric-card good">
+              <div>
+                <p>Vehicle Health</p>
+                <strong>96%</strong>
+              </div>
+              <span class="trend up">+4.2%</span>
+            </div>
+            <div class="metric-card warning">
+              <div>
+                <p>Risk Zone</p>
+                <strong>2 Nearby</strong>
+              </div>
+              <span class="trend warn">Watch</span>
+            </div>
+            <div class="metric-card alert">
+              <div>
+                <p>Crash Detected</p>
+                <strong>0 Events</strong>
+              </div>
+              <span class="trend safe">Stable</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="icon green">●</span>
+              <span class="tag health">GPS</span>
+            </div>
+            <h4>18.56 km/h</h4>
+            <p>Signal strength stable</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="icon amber">●</span>
+              <span class="tag warning-tag">Impact</span>
+            </div>
+            <h4>4.2 g</h4>
+            <p>Below crash threshold</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="icon red">●</span>
+              <span class="tag danger-tag">SMS</span>
+            </div>
+            <h4>1.3s</h4>
+            <p>Emergency alert latency</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <span class="icon blue">●</span>
+              <span class="tag info-tag">AI</span>
+            </div>
+            <h4>92%</h4>
+            <p>Safe route confidence</p>
+          </article>
+        </section>
+
+        <section class="bottom-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Safety Timeline</h3>
+              <button class="ghost-btn small">View all</button>
+            </div>
+
+            <ul class="timeline">
+              <li>
+                <span class="dot green"></span>
+                <div>
+                  <strong>Approach warning cleared</strong>
+                  <p>12:14 PM • Safe road segment</p>
+                </div>
+              </li>
+              <li>
+                <span class="dot yellow"></span>
+                <div>
+                  <strong>Risk zone detected</strong>
+                  <p>12:08 PM • High impact corridor</p>
+                </div>
+              </li>
+              <li>
+                <span class="dot red"></span>
+                <div>
+                  <strong>Emergency contact notified</strong>
+                  <p>11:52 AM • SOS protocol triggered</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="panel focus-panel">
+            <div class="panel-header">
+              <h3>AI Safety Summary</h3>
+              <span class="status-pill safe">Latest</span>
+            </div>
+
+            <div class="summary-box">
+              <p>
+                The trip remained stable with no major collision activity. The vehicle
+                passed one high-risk junction but remained below unsafe thresholds.
+              </p>
+            </div>
+
+            <div class="actions-row">
+              <button class="primary-btn">Generate report</button>
+              <button class="ghost-btn">Download</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
