@@ -14,6 +14,7 @@
     rel="stylesheet"
   />
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -377,39 +378,8 @@
               Active Route
             </div>
 
-
-            <div class="route-map">
-
-              <div class="route-line"></div>
-
-
-              <div class="route-point current">
-
-                <span></span>
-
-              </div>
-
-
-              <div class="route-point danger">
-
-                <span></span>
-
-              </div>
-
-            </div>
-
-
-            <div class="route-labels">
-
-              <span>
-                Current Position
-              </span>
-
-              <span>
-                Danger Zone
-              </span>
-
-            </div>
+            <div id="dashboardMap" style="height: 180px; width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid rgba(150,180,200,0.18); background: #071820;"></div>
+            <div id="dashboardMapNote" style="margin-top: 8px; color: var(--muted); font-size: 10px; line-height: 1.5; min-height: 16px;">Loading route telemetry…</div>
 
           </div>
 
@@ -485,7 +455,7 @@
 
         <!-- HIGH RISK ZONE -->
 
-        <div class="panel risk-panel">
+        <div class="panel risk-panel" id="riskZonePanel">
 
           <div class="risk-header">
 
@@ -509,12 +479,12 @@
           </div>
 
 
-          <div class="risk-distance">
+          <div class="risk-distance" id="riskDistanceText">
             1.2 km ahead
           </div>
 
 
-          <p class="risk-description">
+          <p class="risk-description" id="riskDescriptionText">
             14 incidents recorded
           </p>
 
@@ -524,7 +494,7 @@
           </button>
 
 
-          <div class="alert-sent">
+          <div class="alert-sent" id="alertSentBadge">
             ✓ Alert Sent to Driver
           </div>
 
@@ -692,6 +662,12 @@
   </div>
 
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/vehicle-state.js"></script>
+  <script src="js/risk-engine.js"></script>
+  <script src="js/map-engine.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/dashboard.js"></script>
   <script src="script.js"></script>
 
 </body>

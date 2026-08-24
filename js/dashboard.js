@@ -341,8 +341,8 @@ function wireControls() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  // Only run on pages that actually have the Dashboard markup.
-  if (!document.getElementById("riskZonePanel")) return;
+  // Only run on the Dashboard page where the map container exists.
+  if (!document.getElementById("dashboardMap")) return;
 
   try {
     await loadDashboardData();
