@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>RoadGuard | Authority Intelligence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="authority.css" />
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div class="brand">
+
+      <div class="brand-logo">R</div>
+
+      <div>
+        <div class="brand-name">ROADGUARD</div>
+        <div class="brand-live">● LIVE</div>
+      </div>
+
+    </div>
+
+
+    <nav class="nav">
+
+      <button class="nav-item" onclick="window.location.href='index.html'">
+        <span class="nav-icon">⌂</span>
+        Dashboard
+      </button>
+
+      <button class="nav-item" onclick="window.location.href='trips.html'">
+        <span class="nav-icon">◫</span>
+        Trips
+      </button>
+
+      <button class="nav-item" onclick="window.location.href='alerts.html'">
+        <span class="nav-icon">△</span>
+        Alerts
+      </button>
+
+      <button class="nav-item active">
+        <span class="nav-icon">▦</span>
+        Authority
+      </button>
+
+      <button class="nav-item" onclick="window.location.href='settings.html'">
+        <span class="nav-icon">⚙</span>
+        Settings
+      </button>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <div class="operator-card emergency-card">
+        <div class="operator-title">
+          Emergency Contact
+        </div>
+
+        <div class="emergency-contact-row">
+          <span class="contact-dot"></span>
+          <div>
+            <strong>Mom</strong>
+            <small>+91 98765 43210</small>
+          </div>
+        </div>
+
+        <button class="sos-button" id="sidebarSosBtn">SOS Trigger</button>
+      </div>
+
+      <div class="operator-card">
+
+        <div class="operator-title">
+          Operator #294
+        </div>
+
+        <button class="view-option active">
+          Fleet View
+        </button>
+
+        <button class="view-option">
+          Family View
+        </button>
+
+      </div>
+
+      <div class="fleet-manager">
+        Fleet Manager
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+
+  <main class="main-panel authority-page">
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+      <div>
+
+        <div class="page-label">
+          ROADGUARD
+        </div>
+
+        <h1>
+          Authority Intelligence
+        </h1>
+
+      </div>
+
+      <div class="header-status">
+        <span class="live-dot"></span>
+        LIVE
+      </div>
+
+    </header>
+
+
+    <!-- SYNTHETIC DATA NOTICE -->
+
+    <div class="dataset-notice">
+      <span class="dataset-notice-badge">SYNTHETIC / DEMO DATA</span>
+      <p id="datasetNoticeText">
+        Loading dataset details…
+      </p>
+    </div>
+
+
+    <!-- KPI SUMMARY -->
+
+    <section class="stats-section" id="kpiSection">
+
+      <div class="stat-card">
+        <span>Total Incidents</span>
+        <strong id="kpiTotalIncidents">—</strong>
+        <small id="kpiDateRange">&nbsp;</small>
+      </div>
+
+      <div class="stat-card">
+        <span>High-Risk Zones</span>
+        <strong id="kpiHighRiskZones">—</strong>
+        <small>Severity HIGH or CRITICAL</small>
+      </div>
+
+      <div class="stat-card">
+        <span>Monthly Trend</span>
+        <strong id="kpiMonthlyTrend">—</strong>
+        <small id="kpiMonthlyTrendNote">&nbsp;</small>
+      </div>
+
+      <div class="stat-card">
+        <span>Affected Individuals</span>
+        <strong id="kpiCasualties">—</strong>
+        <small>Total casualties recorded</small>
+      </div>
+
+    </section>
+
+
+    <!-- SEVERITY + CAUSES -->
+
+    <section class="intel-split">
+
+      <div class="intel-panel">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">DATASET BREAKDOWN</span>
+            <h2>Severity Distribution</h2>
+          </div>
+        </div>
+
+        <div class="severity-bars" id="severityBars">
+          <!-- populated by js/authority.js -->
+        </div>
+
+      </div>
+
+      <div class="intel-panel">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">DATASET BREAKDOWN</span>
+            <h2>Common Contributing Factors</h2>
+          </div>
+        </div>
+
+        <div class="cause-list" id="causeList">
+          <!-- populated by js/authority.js -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TOP RISK AREAS -->
+
+    <section class="intel-panel">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">RISK RANKING</span>
+          <h2>Top Risk Areas</h2>
+          <p class="map-description">
+            Zones ranked by weighted historical risk (incident volume, severity mix, and recency)
+          </p>
+        </div>
+      </div>
+
+      <div class="risk-table">
+
+        <div class="risk-table-header">
+          <span>Rank</span>
+          <span>Zone Name</span>
+          <span>Severity</span>
+          <span>Incidents</span>
+          <span>30-Day Trend</span>
+          <span>Top Cause</span>
+        </div>
+
+        <div id="authorityRiskTableBody">
+          <!-- populated by js/authority.js -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- AI-STYLE RECOMMENDATION -->
+
+    <section class="ai-panel">
+
+      <div class="ai-header">
+
+        <div>
+          <span class="section-kicker">ROADGUARD INTELLIGENCE &middot; RULE-BASED</span>
+          <h2>Priority Intervention Recommendation</h2>
+        </div>
+
+        <span class="ai-time" id="recommendationTimestamp">
+          Generated from current dataset
+        </span>
+
+      </div>
+
+      <div class="ai-content">
+        <p id="recommendationText">
+          Analyzing dataset…
+        </p>
+      </div>
+
+      <div class="ai-footer">
+        <span class="ai-confidence" id="recommendationBasis">
+          Basis: —
+        </span>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="js/vehicle-state.js"></script>
+<script src="js/map-engine.js"></script>
+<script src="js/authority.js"></script>
+<script src="js/emergency-modal.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
