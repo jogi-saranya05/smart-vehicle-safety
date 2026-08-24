@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>RoadGuard — Trips</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Dashboard's original CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Trips-only CSS -->
+  <link rel="stylesheet" href="trips.css" />
+
+  <!-- Leaflet (real map + heatmap layer) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <aside class="sidebar">
+
+    <div class="brand">
+
+      <div class="brand-logo">
+        R
+      </div>
+
+      <div>
+        <div class="brand-name">
+          ROADGUARD
+        </div>
+
+        <div class="brand-live">
+          ● LIVE
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+
+      <button class="nav-item" onclick="window.location.href='index.html'">
+        <span class="nav-icon">⌂</span>
+        Dashboard
+      </button>
+
+      <button class="nav-item active" onclick="window.location.href='trips.html'">
+        <span class="nav-icon">◫</span>
+        Trips
+      </button>
+
+      <button class="nav-item" onclick="window.location.href='alerts.html'">
+        <span class="nav-icon">△</span>
+        Alerts
+      </button>
+
+      <button class="nav-item" onclick="window.location.href='authority.html'">
+        <span class="nav-icon">▦</span>
+        Authority
+      </button>
+
+      <button class="nav-item" onclick="window.location.href='settings.html'">
+        <span class="nav-icon">⚙</span>
+        Settings
+      </button>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+      <div class="operator-card emergency-card">
+        <div class="operator-title">Emergency Contact</div>
+
+        <div class="emergency-contact-row">
+          <span class="contact-dot"></span>
+          <div>
+            <strong>Mom</strong>
+            <small>+91 98765 43210</small>
+          </div>
+        </div>
+
+        <button class="sos-button" id="sidebarSosBtn">SOS Trigger</button>
+      </div>
+
+      <div class="operator-card">
+        <div class="operator-title">Operator #294</div>
+        <button class="view-option active">Fleet View</button>
+        <button class="view-option">Family View</button>
+      </div>
+
+      <div class="fleet-manager">Fleet Manager</div>
+
+    </div>
+
+  </aside>
+
+  <main class="main-panel trips-page">
+
+    <header class="topbar">
+
+      <div>
+        <div class="page-label">ROADGUARD</div>
+        <h1>Trips</h1>
+      </div>
+
+      <div class="header-status">
+        <span class="live-dot"></span>
+        LIVE
+      </div>
+
+    </header>
+
+    <section class="trips-map-section">
+
+      <div class="section-heading">
+
+        <div>
+          <p class="section-kicker">Risk Intelligence</p>
+          <h2>Danger Zone Heatmap</h2>
+          <p class="map-description">Live geographical telemetry mapping historical incident densities</p>
+        </div>
+
+        <div class="heat-legend">
+          <span class="legend-item critical">Critical</span>
+          <span class="legend-item high">High</span>
+          <span class="legend-item moderate">Moderate</span>
+          <span class="legend-item low">Low</span>
+        </div>
+
+      </div>
+
+      <div class="danger-map" id="dangerMap">
+        <div id="riskMap" class="risk-map-canvas"></div>
+      </div>
+
+      <p class="map-source-note" id="mapSourceNote"></p>
+
+    </section>
+
+    <section class="crossings-section">
+
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Analytics</p>
+          <h2>Zone Crossings — Last 7 Days</h2>
+          <p class="map-description">Daily aggregated driver crossings through marked danger zones</p>
+        </div>
+      </div>
+
+      <div class="trip-metrics">
+
+        <div class="trip-metric">
+          <span>Total Crossings</span>
+          <strong id="totalCrossings">—</strong>
+        </div>
+
+        <div class="trip-metric">
+          <span>Avg. Daily Crossings</span>
+          <strong id="avgDailyCrossings">—</strong>
+        </div>
+
+        <div class="trip-metric">
+          <span>Peak Day</span>
+          <strong id="peakDay">—</strong>
+        </div>
+
+      </div>
+
+      <div class="bar-chart" id="weeklyBarChart">
+        <!-- populated by js/heatmap.js from data/accidents_delhi.json -->
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= TOP 5 ================= -->
+
+    <section class="risk-zones-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="section-kicker">
+            Risk Ranking
+          </p>
+
+          <h2>
+            Top 5 Highest-Risk Zones
+          </h2>
+
+          <p class="map-description">
+            Primary hazard points with highest monthly incident densities and traffic alerts
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="risk-table">
+
+        <div class="risk-table-header">
+          <span>Rank</span>
+          <span>Zone Name</span>
+          <span>Severity Level</span>
+          <span>Incidents</span>
+          <span>Last Incident</span>
+          <span>Trend</span>
+        </div>
+
+        <div id="riskTableBody">
+          <!-- populated by js/heatmap.js from data/accidents_delhi.json -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+</div>
+
+
+<script src="js/risk-engine.js"></script>
+<script src="js/vehicle-state.js"></script>
+<script src="js/map-engine.js"></script>
+<script src="js/heatmap.js"></script>
+<script src="js/emergency-modal.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

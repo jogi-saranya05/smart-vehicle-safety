@@ -1,0 +1,269 @@
+/* =====================================================
+   AUTHORITY INTELLIGENCE PAGE
+===================================================== */
+
+.authority-page {
+  gap: 20px;
+}
+
+/* SYNTHETIC DATA NOTICE ---------------------------------------------- */
+
+.dataset-notice {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 13px 17px;
+
+  border-radius: 13px;
+
+  border: 1px solid rgba(245, 189, 85, 0.25);
+
+  background: rgba(245, 189, 85, 0.06);
+}
+
+.dataset-notice-badge {
+  flex-shrink: 0;
+
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: var(--yellow-soft);
+
+  color: var(--yellow);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.dataset-notice p {
+  margin: 0;
+
+  color: #b9c8d3;
+
+  font-size: 10.5px;
+
+  line-height: 1.5;
+}
+
+
+/* SEVERITY + CAUSES SPLIT -------------------------------------------- */
+
+.intel-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.intel-panel {
+  padding: 20px;
+
+  border-radius: 18px;
+
+  border: 1px solid var(--line);
+
+  background: rgba(10, 26, 37, 0.82);
+
+  box-shadow: var(--shadow);
+}
+
+.intel-panel .section-heading {
+  margin-bottom: 16px;
+}
+
+
+/* SEVERITY BARS ------------------------------------------------------- */
+
+.severity-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.severity-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.severity-bar-label {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.severity-bar-label .count {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.severity-bar-track {
+  height: 9px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.04);
+
+  overflow: hidden;
+}
+
+.severity-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.severity-bar-fill.minor { background: var(--green); }
+.severity-bar-fill.major { background: var(--yellow); }
+.severity-bar-fill.fatal { background: var(--red); }
+
+.severity-bar-label.minor { color: var(--green); }
+.severity-bar-label.major { color: var(--yellow); }
+.severity-bar-label.fatal { color: var(--red); }
+
+
+/* CAUSE LIST ----------------------------------------------------------- */
+
+.cause-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cause-row {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 12px;
+
+  border-radius: 11px;
+
+  background: rgba(255,255,255,0.02);
+
+  border: 1px solid var(--line);
+}
+
+.cause-rank {
+  color: #6f8492;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.cause-name {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.cause-count {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+
+/* TOP RISK AREAS TABLE (mirrors trips.html's .risk-table look) ------- */
+
+.risk-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.risk-table-header,
+.risk-row {
+  display: grid;
+  grid-template-columns: 0.5fr 1.6fr 1fr 1fr 1fr 1.3fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.risk-table-header {
+  padding: 0 12px 10px;
+
+  border-bottom: 1px solid var(--line);
+
+  color: #718897;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.risk-row {
+  padding: 13px 12px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+
+  font-size: 11px;
+}
+
+.risk-row:last-child {
+  border-bottom: none;
+}
+
+.risk-row strong {
+  font-weight: 700;
+}
+
+.severity {
+  display: inline-block;
+
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  width: fit-content;
+}
+
+.severity.critical { color: var(--red); background: var(--red-soft); }
+.severity.high { color: #ff8d68; background: rgba(255,141,104,0.1); }
+.severity.moderate { color: var(--yellow); background: var(--yellow-soft); }
+.severity.low { color: var(--green); background: var(--green-soft); }
+
+.trend-up { color: var(--red); font-weight: 700; }
+.trend-down { color: var(--green); font-weight: 700; }
+
+.cause-cell {
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+
+@media (max-width: 1000px) {
+
+  .intel-split {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .risk-table-header, .risk-row {
+    grid-template-columns: 0.4fr 1.4fr 0.9fr 0.9fr 0.9fr 1.1fr;
+    font-size: 10px;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .risk-table { overflow-x: auto; }
+  .risk-table-header, .risk-row { min-width: 700px; }
+
+  .dataset-notice {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}

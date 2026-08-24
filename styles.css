@@ -1,0 +1,1647 @@
+:root {
+  --bg: #07131c;
+  --bg2: #0b1c28;
+  --panel: #0d202d;
+  --panel2: #102635;
+  --line: rgba(150, 180, 200, 0.16);
+  --border: rgba(150, 180, 200, 0.16);
+
+  --text: #edf7ff;
+  --muted: #91a6b7;
+
+  --green: #35d89a;
+  --green-soft: rgba(53, 216, 154, 0.12);
+
+  --yellow: #f5bd55;
+  --yellow-soft: rgba(245, 189, 85, 0.12);
+
+  --red: #ff5d6c;
+  --red-soft: rgba(255, 93, 108, 0.12);
+
+  --blue: #5ca8ff;
+  --blue-soft: rgba(92, 168, 255, 0.12);
+
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+
+  /* Global fixed sidebar layout — single source of truth so every page
+     (index/trips/alerts/authority/settings) offsets its content by the
+     exact same amount. */
+  --sidebar-width: 245px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 70% 0%,
+      #123448 0%,
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      #06121a,
+      #081722 55%,
+      #07131c
+    );
+
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* =========================
+   APP LAYOUT
+========================= */
+
+.app-shell {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+   Fixed application nav panel — identical on every page because every
+   page shares this same rule (no per-page sidebar CSS exists). Height is
+   pinned to the viewport, not to page content, and it never scrolls with
+   the page.
+========================= */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: var(--sidebar-width);
+  height: 100vh;
+
+  background: rgba(8, 22, 31, 0.92);
+
+  border-right: 1px solid var(--line);
+
+  padding: 25px 17px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+
+  z-index: 40;
+
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 8px;
+  margin-bottom: 32px;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 12px;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 19px;
+  font-weight: 800;
+
+  color: #041a13;
+
+  background: linear-gradient(
+    135deg,
+    #35d89a,
+    #75eed2
+  );
+
+  box-shadow: 0 8px 25px rgba(53, 216, 154, 0.18);
+}
+
+.brand-name {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.brand-live {
+  margin-top: 3px;
+
+  color: var(--green);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.nav-item {
+  width: 100%;
+
+  padding: 12px 13px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  border-radius: 11px;
+
+  border: 1px solid transparent;
+
+  background: transparent;
+
+  color: #aebfcb;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition: 0.2s ease;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.035);
+  color: white;
+}
+
+.nav-item.active {
+  color: white;
+
+  background: rgba(92, 168, 255, 0.09);
+
+  border-color: rgba(92, 168, 255, 0.18);
+}
+
+.nav-icon {
+  width: 20px;
+
+  display: inline-flex;
+  justify-content: center;
+
+  color: #8199aa;
+
+  font-size: 15px;
+}
+
+.nav-item.active .nav-icon {
+  color: var(--blue);
+}
+
+/* =========================
+   SIDEBAR BOTTOM
+========================= */
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.operator-card {
+  margin-top: 30px;
+
+  padding: 15px;
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.025);
+
+  border: 1px solid var(--line);
+}
+
+.emergency-card {
+  background: linear-gradient(180deg, rgba(255, 93, 108, 0.10), rgba(255, 93, 108, 0.04));
+  border: 1px solid rgba(255, 93, 108, 0.30);
+  box-shadow: 0 14px 35px rgba(255, 93, 108, 0.12);
+}
+
+.operator-title {
+  margin-bottom: 12px;
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.emergency-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+
+.contact-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 12px rgba(53, 216, 154, 0.7);
+}
+
+.emergency-contact-row strong {
+  display: block;
+  font-size: 13px;
+  color: white;
+}
+
+.emergency-contact-row small {
+  display: block;
+  color: #c9dbe9;
+  margin-top: 3px;
+  opacity: 0.9;
+}
+
+.sos-button {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, var(--red), #ff7b88);
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(255, 93, 108, 0.22);
+}
+
+.view-option {
+  width: 100%;
+
+  padding: 8px 9px;
+
+  margin-top: 5px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: var(--muted);
+
+  text-align: left;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.view-option.active {
+  background: rgba(92,168,255,0.1);
+  color: #dbeeff;
+}
+
+.fleet-manager {
+  padding: 17px 8px 3px;
+
+  color: #6f8492;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main-panel {
+  min-width: 0;
+
+  margin-left: var(--sidebar-width);
+  max-width: 1600px;
+
+  padding: 24px 24px 40px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 4px 5px;
+}
+
+.page-label {
+  color: #668091;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.topbar h1 {
+  margin: 5px 0 0;
+
+  font-size: 25px;
+
+  letter-spacing: -0.03em;
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  background: var(--green-soft);
+
+  color: var(--green);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  box-shadow: 0 0 10px var(--green);
+}
+
+/* =========================
+   STATUS SECTION
+========================= */
+
+.status-section {
+  display: grid;
+
+  grid-template-columns: 1.1fr 1fr 1.25fr;
+
+  gap: 14px;
+}
+
+.status-card {
+  min-height: 125px;
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  border: 1px solid var(--line);
+
+  background: rgba(12, 31, 43, 0.88);
+
+  box-shadow: var(--shadow);
+}
+
+.status-label {
+  color: #708898;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.status-main {
+  margin-top: 15px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+}
+
+.status-dot.green {
+  background: var(--green);
+
+  box-shadow: 0 0 14px rgba(53,216,154,0.7);
+}
+
+.status-card p {
+  margin-top: 8px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+}
+
+.safe-state {
+  border-color: rgba(53,216,154,0.14);
+}
+
+.status-description {
+  margin-top: 15px;
+
+  color: var(--green);
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* =========================
+   STATUS BUTTONS
+========================= */
+
+.status-actions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.state-button {
+  flex: 1;
+
+  min-height: 36px;
+
+  border-radius: 10px;
+
+  border: 1px solid var(--line);
+
+  background: rgba(255,255,255,0.025);
+
+  color: #9cafbc;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.state-button:hover {
+  transform: translateX(2px);
+}
+
+.safe-button {
+  color: var(--green);
+  border-color: rgba(53,216,154,0.22);
+  background: var(--green-soft);
+}
+
+.warning-button {
+  color: var(--yellow);
+}
+
+.accident-button {
+  color: var(--red);
+}
+
+/* =========================
+   SECTION HEADING
+========================= */
+
+.section-heading,
+.panel-heading,
+.risk-header,
+.ai-header,
+.ai-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.section-kicker {
+  display: block;
+
+  color: #718998;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.section-heading h2,
+.panel-heading h2,
+.risk-header h2,
+.ai-header h2 {
+  margin: 5px 0 0;
+
+  font-size: 15px;
+}
+
+/* =========================
+   TELEMETRY
+========================= */
+
+.telemetry-section {
+  padding: 20px;
+
+  border-radius: 20px;
+
+  border: 1px solid var(--line);
+
+  background: rgba(10, 26, 37, 0.78);
+
+  box-shadow: var(--shadow);
+}
+
+.online-badge {
+  padding: 6px 9px;
+
+  border-radius: 999px;
+
+  background: var(--green-soft);
+
+  color: var(--green);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.telemetry-grid {
+  margin-top: 17px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1.2fr;
+
+  gap: 12px;
+}
+
+.telemetry-card {
+  min-height: 155px;
+
+  padding: 17px;
+
+  border-radius: 15px;
+
+  border: 1px solid var(--line);
+
+  background: rgba(255,255,255,0.018);
+}
+
+.telemetry-label {
+  color: #8297a6;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+.speed-value {
+  margin-top: 15px;
+
+  font-size: 37px;
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+}
+
+.speed-value span {
+  margin-left: 4px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+  font-weight: 500;
+}
+
+.speed-target {
+  margin-top: 9px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  font-size: 10px;
+}
+
+.speed-target strong {
+  color: #d7e5ed;
+}
+
+.speed-target span {
+  color: var(--green);
+}
+
+.safe-margin {
+  margin-top: 12px;
+
+  color: #657e8e;
+
+  font-size: 9px;
+}
+
+/* =========================
+   SENSORS
+========================= */
+
+.sensor-list {
+  margin-top: 17px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+.sensor-row {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #b7c7d1;
+
+  font-size: 11px;
+}
+
+.sensor-status {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  box-shadow: 0 0 9px rgba(53,216,154,0.6);
+}
+
+/* =========================
+   ROUTE MAP
+========================= */
+
+.route-map {
+  position: relative;
+
+  height: 86px;
+
+  margin-top: 10px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(92,168,255,0.035),
+      rgba(53,216,154,0.03)
+    );
+}
+
+.route-map::before,
+.route-map::after {
+  content: "";
+
+  position: absolute;
+
+  background: rgba(135,170,190,0.08);
+}
+
+.route-map::before {
+  width: 100%;
+  height: 1px;
+
+  top: 52%;
+}
+
+.route-map::after {
+  height: 100%;
+  width: 1px;
+
+  left: 55%;
+}
+
+.route-line {
+  position: absolute;
+
+  left: 15%;
+  top: 58%;
+
+  width: 70%;
+  height: 3px;
+
+  background: var(--green);
+
+  transform: rotate(-13deg);
+
+  border-radius: 99px;
+
+  box-shadow: 0 0 8px rgba(53,216,154,0.5);
+}
+
+.route-point {
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  border: 2px solid white;
+}
+
+.route-point.current {
+  left: 15%;
+  top: 65%;
+
+  background: var(--green);
+}
+
+.route-point.danger {
+  right: 13%;
+  top: 32%;
+
+  background: var(--red);
+}
+
+.route-labels {
+  margin-top: 8px;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #6f8493;
+
+  font-size: 9px;
+}
+
+/* =========================
+   DASHBOARD LIVE MAP
+   (real Leaflet map replacing the old decorative .route-map graphic;
+   shares the dark basemap + popup theming used by Trips' js/heatmap.js)
+========================= */
+
+.route-card.live-map-card {
+  grid-column: 1 / -1;
+}
+
+.dashboard-map-legend {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dashboard-legend-item {
+  font-size: 9px;
+  padding: 5px 9px;
+
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.dashboard-legend-item.critical { color: var(--red); background: var(--red-soft); }
+.dashboard-legend-item.high { color: #ff8d68; background: rgba(255,141,104,0.1); }
+.dashboard-legend-item.moderate { color: var(--yellow); background: var(--yellow-soft); }
+.dashboard-legend-item.low { color: var(--green); background: var(--green-soft); }
+
+.dashboard-map-canvas {
+  position: relative;
+
+  height: 320px;
+
+  margin-top: 12px;
+
+  overflow: hidden;
+  border-radius: 12px;
+
+  border: 1px solid var(--line);
+
+  background: #081923;
+}
+
+.dashboard-map-inner {
+  width: 100%;
+  height: 100%;
+
+  background: #081923;
+}
+
+.dashboard-map-note {
+  margin-top: 8px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+}
+
+/* Leaflet control/popup theming to match the dark dashboard (mirrors the
+   theming already used on the Trips page's map) */
+.leaflet-control-zoom a {
+  background: rgba(6,19,29,0.9) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(6,19,29,0.7) !important;
+  color: var(--muted) !important;
+  font-size: 9px !important;
+}
+
+.leaflet-control-attribution a { color: var(--muted) !important; }
+
+.leaflet-popup-content-wrapper {
+  background: var(--panel2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.leaflet-popup-tip { background: var(--panel2); }
+
+.risk-popup strong { display: block; font-size: 13px; margin-bottom: 4px; }
+.risk-popup span { font-size: 11px; color: var(--muted); display: block; }
+
+/* Custom vehicle / destination markers (used via L.divIcon in map-engine.js) */
+.rg-vehicle-dot {
+  display: block;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+  border: 2px solid #fff;
+
+  box-shadow: 0 0 0 6px rgba(53,216,154,0.25);
+}
+
+.rg-destination-dot {
+  display: block;
+
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: var(--blue);
+  border: 2px solid #fff;
+
+  box-shadow: 0 0 0 5px rgba(92,168,255,0.2);
+}
+
+/* =========================
+   ROUTE COMPARISON MAP
+   (reuses .dashboard-map-canvas / .dashboard-map-inner / .risk-popup from
+   the Dashboard live map above — this just adds the bits unique to the
+   route-comparison card: a slightly taller canvas + the recommended/
+   alternative line-style legend swatches)
+========================= */
+
+.route-compare-map-card {
+  margin-top: 22px;
+}
+
+.route-compare-map-canvas {
+  height: 360px;
+}
+
+.route-compare-risk-legend {
+  margin-top: 10px;
+}
+
+.dashboard-legend-item.recommended-line,
+.dashboard-legend-item.alternative-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text);
+  background: rgba(255,255,255,0.04);
+}
+
+.dashboard-legend-item.recommended-line::before,
+.dashboard-legend-item.alternative-line::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.dashboard-legend-item.recommended-line::before {
+  background: #35d89a;
+}
+
+.dashboard-legend-item.alternative-line::before {
+  background: #8297a6;
+  opacity: 0.7;
+}
+
+/* =========================
+   INFORMATION
+========================= */
+
+.information-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1.2fr;
+
+  gap: 14px;
+}
+
+.panel {
+  padding: 20px;
+
+  border-radius: 20px;
+
+  border: 1px solid var(--line);
+
+  background: rgba(10, 26, 37, 0.8);
+
+  box-shadow: var(--shadow);
+}
+
+.vehicle-status {
+  padding: 6px 9px;
+
+  border-radius: 999px;
+
+  background: var(--green-soft);
+
+  color: var(--green);
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.vehicle-details {
+  margin-top: 25px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+}
+
+.vehicle-details span {
+  display: block;
+
+  color: #718897;
+
+  font-size: 9px;
+}
+
+.vehicle-details strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #e3edf3;
+
+  font-size: 11px;
+}
+
+/* =========================
+   RISK PANEL
+========================= */
+
+.risk-panel {
+  border-color: rgba(245,189,85,0.16);
+}
+
+.risk-level {
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: var(--yellow-soft);
+
+  color: var(--yellow);
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.risk-distance {
+  margin-top: 20px;
+
+  color: #fff;
+
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.risk-description {
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+}
+
+.analysis-button {
+  margin-top: 15px;
+
+  padding: 9px 12px;
+
+  border-radius: 9px;
+
+  border: 1px solid rgba(245,189,85,0.22);
+
+  background: rgba(245,189,85,0.07);
+
+  color: var(--yellow);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.alert-sent {
+  display: inline-block;
+
+  margin-left: 10px;
+
+  color: var(--green);
+
+  font-size: 9px;
+}
+
+/* =========================
+   STATISTICS
+========================= */
+
+.stats-section {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+.stat-card {
+  padding: 17px;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--line);
+
+  background: rgba(10,26,37,0.8);
+
+  box-shadow: var(--shadow);
+}
+
+.stat-card span {
+  display: block;
+
+  color: #7c91a0;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.07em;
+}
+
+.stat-card strong {
+  display: block;
+
+  margin-top: 10px;
+
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.stat-card small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--green);
+
+  font-size: 9px;
+}
+
+/* =========================
+   AI PANEL
+========================= */
+
+.ai-panel {
+  padding: 20px;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(92,168,255,0.16);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(92,168,255,0.06),
+      rgba(10,26,37,0.82)
+    );
+
+  box-shadow: var(--shadow);
+}
+
+.ai-time {
+  color: #728898;
+
+  font-size: 9px;
+}
+
+.ai-content {
+  margin-top: 15px;
+
+  padding: 16px;
+
+  border-radius: 13px;
+
+  background: rgba(255,255,255,0.025);
+
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.ai-content p {
+  color: #b9cbd6;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+.ai-content strong {
+  color: white;
+}
+
+.ai-footer {
+  margin-top: 13px;
+}
+
+.ai-confidence {
+  color: var(--green);
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.secondary-button {
+  padding: 8px 12px;
+
+  border-radius: 8px;
+
+  border: 1px solid var(--line);
+
+  background: rgba(255,255,255,0.025);
+
+  color: #a9bdca;
+
+  font-size: 9px;
+
+  cursor: pointer;
+}
+
+/* =========================
+   DASHBOARD WIRING (RiskEngine-driven)
+========================= */
+
+.state-button.is-active {
+  background: rgba(255,255,255,0.09);
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+
+.sim-controls-card {
+  grid-column: 1 / -1;
+}
+
+.sim-controls-buttons {
+  margin-top: 14px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.risk-breakdown {
+  margin-top: 14px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 8px;
+}
+
+.breakdown-row {
+  padding: 8px 6px;
+
+  border-radius: 8px;
+
+  background: rgba(255,255,255,0.03);
+
+  text-align: center;
+}
+
+.breakdown-row span {
+  display: block;
+
+  color: #8297a6;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+.breakdown-row strong {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.risk-level.low {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.risk-level.moderate {
+  background: var(--yellow-soft);
+  color: var(--yellow);
+}
+
+.risk-level.high {
+  background: rgba(255,141,104,0.12);
+  color: #ff8d68;
+}
+
+.risk-level.critical {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.status-card.all-clear.crash-mode {
+  border-color: rgba(255,93,108,0.35);
+}
+
+.status-dot.red {
+  background: var(--red);
+  box-shadow: 0 0 14px rgba(255,93,108,0.7);
+}
+
+/* =========================
+   ROUTE COMPARISON
+   (lives inside .live-map-card now, directly under the map it's drawn
+   on, styled compactly so 2-3 routes are scannable/switchable at a
+   glance without scrolling to a separate section)
+========================= */
+
+.route-switcher {
+  margin-top: 16px;
+  padding-top: 14px;
+
+  border-top: 1px solid var(--line);
+}
+
+.route-switcher-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-bottom: 10px;
+}
+
+.route-switcher-hint {
+  color: #62798a;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.route-recommend-banner {
+  margin-bottom: 10px;
+
+  padding: 10px 14px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(53,216,154,0.22);
+
+  background: var(--green-soft);
+
+  color: var(--green);
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.route-recommend-banner.high-risk-all {
+  border-color: rgba(255,93,108,0.28);
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.route-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+
+  gap: 10px;
+}
+
+.route-compare-card {
+  padding: 12px 14px;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--line);
+
+  background: rgba(255,255,255,0.018);
+
+  position: relative;
+}
+
+.route-compare-card.is-recommended {
+  border-color: rgba(53,216,154,0.4);
+  background: linear-gradient(160deg, rgba(53,216,154,0.08), rgba(255,255,255,0.018));
+}
+
+.route-compare-card {
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.route-compare-card:hover {
+  border-color: rgba(92,168,255,0.4);
+}
+
+.route-compare-card.is-selected {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 1px rgba(92,168,255,0.35);
+  transform: translateY(-1px);
+}
+
+.route-compare-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 8px;
+}
+
+.route-compare-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.3;
+
+  color: #eaf3f8;
+}
+
+.recommended-badge {
+  flex-shrink: 0;
+
+  padding: 3px 7px;
+
+  border-radius: 999px;
+
+  background: var(--green);
+
+  color: #06231a;
+
+  font-size: 7.5px;
+  font-weight: 800;
+
+  letter-spacing: 0.05em;
+}
+
+.route-compare-stats {
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: space-between;
+
+  gap: 6px;
+}
+
+.route-compare-stats div {
+  flex: 1;
+}
+
+.route-compare-stats span {
+  display: block;
+
+  color: #8297a6;
+
+  font-size: 7.5px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.04em;
+}
+
+.route-compare-stats strong {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.route-compare-risk-badge {
+  display: inline-block;
+
+  margin-top: 3px;
+
+  padding: 2px 7px;
+
+  border-radius: 999px;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.route-compare-note {
+  margin-top: 8px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1150px) {
+
+  :root {
+    --sidebar-width: 210px;
+  }
+
+  .status-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .status-actions {
+    grid-column: 1 / -1;
+
+    flex-direction: row;
+  }
+
+  .telemetry-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .route-card {
+    grid-column: 1 / -1;
+  }
+
+}
+
+@media (max-width: 850px) {
+
+  .app-shell {
+    width: 100%;
+  }
+
+  .sidebar {
+    position: static;
+
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .main-panel {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-item {
+    width: auto;
+  }
+
+  .information-grid,
+  .stats-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .main-panel {
+    padding: 8px 12px 32px;
+  }
+
+  .status-section,
+  .telemetry-grid,
+  .information-grid,
+  .stats-section {
+    grid-template-columns: 1fr;
+  }
+
+  .status-actions {
+    flex-direction: column;
+  }
+
+  .vehicle-details {
+    grid-template-columns: 1fr;
+  }
+
+}

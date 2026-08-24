@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>RoadGuard | Settings</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="settings.css" />
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div class="brand">
+
+      <div class="brand-logo">R</div>
+
+      <div>
+        <div class="brand-name">ROADGUARD</div>
+        <div class="brand-live">● LIVE</div>
+      </div>
+
+    </div>
+
+
+    <nav class="nav">
+
+      <button
+        class="nav-item"
+        onclick="window.location.href='index.html'"
+      >
+        <span class="nav-icon">⌂</span>
+        Dashboard
+      </button>
+
+
+      <button
+        class="nav-item"
+        onclick="window.location.href='trips.html'"
+      >
+        <span class="nav-icon">◫</span>
+        Trips
+      </button>
+
+
+      <button
+        class="nav-item"
+        onclick="window.location.href='alerts.html'"
+      >
+        <span class="nav-icon">△</span>
+        Alerts
+      </button>
+
+
+      <button class="nav-item" onclick="window.location.href='authority.html'">
+        <span class="nav-icon">▦</span>
+        Authority
+      </button>
+
+
+      <button class="nav-item active">
+        <span class="nav-icon">⚙</span>
+        Settings
+      </button>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <div class="operator-card emergency-card">
+        <div class="operator-title">
+          Emergency Contact
+        </div>
+
+        <div class="emergency-contact-row">
+          <span class="contact-dot"></span>
+          <div>
+            <strong>Mom</strong>
+            <small>+91 98765 43210</small>
+          </div>
+        </div>
+
+        <button class="sos-button" id="sidebarSosBtn">SOS Trigger</button>
+      </div>
+
+      <div class="operator-card">
+
+        <div class="operator-title">
+          Operator #294
+        </div>
+
+        <button class="view-option active">
+          Fleet View
+        </button>
+
+        <button class="view-option">
+          Family View
+        </button>
+
+      </div>
+
+      <div class="fleet-manager">
+        Fleet Manager
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+
+  <main class="main-panel settings-page">
+
+    <header class="topbar">
+
+      <div>
+
+        <div class="page-label">
+          ROADGUARD
+        </div>
+
+        <h1>
+          Settings
+        </h1>
+
+      </div>
+
+      <div class="header-status">
+        <span class="live-dot"></span>
+        LIVE
+      </div>
+
+    </header>
+
+
+    <!-- PROFILE -->
+
+    <section class="settings-section">
+
+      <div class="settings-heading">
+
+        <div>
+
+          <span class="section-kicker">
+            OPERATOR PROFILE
+          </span>
+
+          <h2>
+            Account
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="settings-card profile-card">
+
+        <div class="profile-avatar">
+          O
+        </div>
+
+        <div class="profile-info">
+
+          <strong>
+            Operator #294
+          </strong>
+
+          <span>
+            Fleet Manager
+          </span>
+
+        </div>
+
+        <button class="secondary-button">
+          Edit Profile
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- VEHICLE SETTINGS -->
+
+    <section class="settings-section">
+
+      <div class="settings-heading">
+
+        <div>
+
+          <span class="section-kicker">
+            VEHICLE CONFIGURATION
+          </span>
+
+          <h2>
+            Selected Vehicle
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="settings-card">
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              Vehicle
+            </strong>
+
+            <p>
+              Currently monitored vehicle
+            </p>
+
+          </div>
+
+          <span class="setting-value">
+            Toyota Hilux
+          </span>
+
+        </div>
+
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              License Plate
+            </strong>
+
+            <p>
+              Registered vehicle identifier
+            </p>
+
+          </div>
+
+          <span class="setting-value">
+            KA-05-MR-2024
+          </span>
+
+        </div>
+
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              Vehicle Monitoring
+            </strong>
+
+            <p>
+              Enable live vehicle telemetry
+            </p>
+
+          </div>
+
+          <label class="toggle">
+
+            <input type="checkbox" checked>
+
+            <span class="slider"></span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SAFETY -->
+
+    <section class="settings-section">
+
+      <div class="settings-heading">
+
+        <div>
+
+          <span class="section-kicker">
+            SAFETY & ALERTS
+          </span>
+
+          <h2>
+            Notification Preferences
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="settings-card">
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              Danger Zone Warnings
+            </strong>
+
+            <p>
+              Warn the driver before entering high-risk zones
+            </p>
+
+          </div>
+
+          <label class="toggle">
+
+            <input type="checkbox" checked>
+
+            <span class="slider"></span>
+
+          </label>
+
+        </div>
+
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              Crash Detection
+            </strong>
+
+            <p>
+              Automatically detect potential vehicle crashes
+            </p>
+
+          </div>
+
+          <label class="toggle">
+
+            <input type="checkbox" checked>
+
+            <span class="slider"></span>
+
+          </label>
+
+        </div>
+
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              Emergency SMS
+            </strong>
+
+            <p>
+              Notify emergency contacts after crash detection
+            </p>
+
+          </div>
+
+          <label class="toggle">
+
+            <input type="checkbox" checked>
+
+            <span class="slider"></span>
+
+          </label>
+
+        </div>
+
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              AI Safety Reports
+            </strong>
+
+            <p>
+              Generate automatic journey safety summaries
+            </p>
+
+          </div>
+
+          <label class="toggle">
+
+            <input type="checkbox" checked>
+
+            <span class="slider"></span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SYSTEM -->
+
+    <section class="settings-section">
+
+      <div class="settings-heading">
+
+        <div>
+
+          <span class="section-kicker">
+            SYSTEM STATUS
+          </span>
+
+          <h2>
+            Connected Services
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="settings-card">
+
+        <div class="connection-row">
+
+          <span class="connection-dot"></span>
+
+          <div>
+
+            <strong>
+              GPS
+            </strong>
+
+            <p>
+              Location service connected
+            </p>
+
+          </div>
+
+          <span class="connected">
+            CONNECTED
+          </span>
+
+        </div>
+
+
+        <div class="connection-row">
+
+          <span class="connection-dot"></span>
+
+          <div>
+
+            <strong>
+              4G LTE
+            </strong>
+
+            <p>
+              Vehicle communication uplink
+            </p>
+
+          </div>
+
+          <span class="connected">
+            CONNECTED
+          </span>
+
+        </div>
+
+
+        <div class="connection-row">
+
+          <span class="connection-dot"></span>
+
+          <div>
+
+            <strong>
+              IMU
+            </strong>
+
+            <p>
+              Motion and impact sensor
+            </p>
+
+          </div>
+
+          <span class="connected">
+            ACTIVE
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SAVE -->
+
+    <div class="settings-footer">
+
+      <span>
+        Changes are saved automatically
+      </span>
+
+      <button class="primary-button">
+        Save Changes
+      </button>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script src="js/vehicle-state.js"></script>
+<script src="js/map-engine.js"></script>
+<script src="js/emergency-modal.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
